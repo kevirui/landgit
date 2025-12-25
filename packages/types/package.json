@@ -1,11 +1,13 @@
 {
-  "name": "@repo/shared",
+  "name": "@repo/types",
   "version": "0.0.0",
   "private": true,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "description": "Shared TypeScript types and interfaces",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./index.ts",
+    "./*": "./*.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

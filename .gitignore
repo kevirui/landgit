@@ -1,3 +1,30 @@
+# Build outputs
+dist/
+build/
+out/
+.next/
+.turbo/
+/node_modules
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Testing
+coverage/
+
+# Temp
+*.tsbuildinfo
+
 # Logs
 logs
 *.log
@@ -6,13 +33,6 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-
-# Node Modules
-/node_modules
-
-# Lock Files
-pnpm-lock.yaml
-pnpm-workspace.yaml
 
 # AI Agent
 /.agent/

@@ -1,9 +1,35 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "incremental": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
     "baseUrl": ".",
     "paths": {
-      "@repo/shared": ["packages/shared/src"]
+      "@repo/shared/*": ["../../packages/shared/src/*"],
+      "@repo/types/*": ["../../packages/types/*"],
+      "@repo/zod-schemas/*": ["../../packages/zod-schemas/*"],
+      "@repo/config/*": ["../../packages/config/*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist", "build", ".next"]
 }
