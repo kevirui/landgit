@@ -1,5 +1,5 @@
 {
-  "name": "landGit",
+  "name": "landgit",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -7,13 +7,19 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
-    "lint": "turbo lint"
+    "lint": "turbo lint",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.15.1",
   "devDependencies": {
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
     "turbo": "^2.0.0"
   }
 }
