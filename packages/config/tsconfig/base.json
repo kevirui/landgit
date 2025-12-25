@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@repo/shared": ["packages/shared/src"]
+    }
+  }
+}
