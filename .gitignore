@@ -13,3 +13,6 @@ lerna-debug.log*
 # Lock Files
 pnpm-lock.yaml
 pnpm-workspace.yaml
+
+# AI Agent
+/.agent/
