@@ -8,6 +8,8 @@
     ".": "./src/index.ts"
   },
   "scripts": {
+    "lint": "echo 'No linting configured for @repo/shared'",
+    "test": "echo 'No tests configured for @repo/shared'",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

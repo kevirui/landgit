@@ -9,6 +9,8 @@
     ".": "./src/index.ts"
   },
   "scripts": {
+    "lint": "echo 'No linting configured for @repo/zod-schemas'",
+    "test": "echo 'No tests configured for @repo/zod-schemas'",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

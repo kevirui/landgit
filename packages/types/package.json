@@ -10,6 +10,8 @@
     "./*": "./*.ts"
   },
   "scripts": {
+    "lint": "echo 'No linting configured for @repo/types'",
+    "test": "echo 'No tests configured for @repo/types'",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

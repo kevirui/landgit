@@ -13,6 +13,10 @@
     "eslint",
     "tailwind"
   ],
+  "scripts": {
+    "lint": "echo 'No linting configured for @repo/config'",
+    "test": "echo 'No tests configured for @repo/config'"
+  },
   "devDependencies": {
     "typescript": "^5.7.0"
   }
