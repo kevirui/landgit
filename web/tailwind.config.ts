@@ -1,5 +1,5 @@
-import preset from "@repo/config/tailwind"
+import preset from '../packages/config/tailwind/preset';
 
 export default {
   presets: [preset],
-}
+};
