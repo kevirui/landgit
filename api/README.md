@@ -1,98 +1,150 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🔌 LandGit API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+> Backend de la plataforma LandGit construido con NestJS 11.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+[![NestJS](https://img.shields.io/badge/NestJS-11.x-red)](https://nestjs.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
+[![Jest](https://img.shields.io/badge/Jest-30.x-green)](https://jestjs.io/)
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 📦 Descripción
 
-## Project setup
+Este módulo contiene la API REST del proyecto LandGit. Está desarrollado con **NestJS** siguiendo los principios SOLID y arquitectura modular.
+
+---
+
+## 🚀 Inicio Rápido
+
+### Requisitos
+
+- Node.js >= 20.x
+- pnpm >= 10.x
+- PostgreSQL 16 (via Docker en `infra/`)
+- Redis 7 (via Docker en `infra/`)
+
+### Instalación
 
 ```bash
-$ pnpm install
+# Desde la raíz del monorepo
+pnpm install
+
+# O desde este directorio
+cd api
+pnpm install
 ```
 
-## Compile and run the project
+### Variables de Entorno
 
 ```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+cp .env.example .env
 ```
 
-## Run tests
+Configurar las variables necesarias en `.env`:
+
+```env
+DATABASE_URL=postgresql://dev:dev@localhost:5432/plataforma
+REDIS_URL=redis://localhost:6379
+```
+
+---
+
+## 📜 Scripts Disponibles
+
+| Comando              | Descripción                                |
+|----------------------|--------------------------------------------|
+| `pnpm start`         | Inicia el servidor en modo producción      |
+| `pnpm start:dev`     | Inicia en modo desarrollo (watch mode)     |
+| `pnpm start:debug`   | Inicia en modo debug con watch             |
+| `pnpm start:prod`    | Ejecuta el build de producción             |
+| `pnpm build`         | Compila el proyecto                        |
+| `pnpm test`          | Ejecuta tests unitarios                    |
+| `pnpm test:watch`    | Ejecuta tests en modo watch                |
+| `pnpm test:cov`      | Ejecuta tests con cobertura                |
+| `pnpm test:e2e`      | Ejecuta tests end-to-end                   |
+| `pnpm lint`          | Ejecuta ESLint y corrige errores           |
+| `pnpm format`        | Formatea código con Prettier               |
+
+---
+
+## 🏗️ Estructura del Proyecto
+
+```
+api/
+├── src/
+│   ├── app.controller.ts      # Controlador principal
+│   ├── app.module.ts          # Módulo raíz
+│   ├── app.service.ts         # Servicio principal
+│   └── main.ts                # Punto de entrada
+├── test/
+│   └── app.e2e-spec.ts        # Tests E2E
+├── .env.example               # Variables de entorno de ejemplo
+├── Dockerfile                 # Dockerfile para producción
+├── nest-cli.json              # Configuración de NestJS CLI
+├── tsconfig.json              # Configuración de TypeScript
+└── package.json
+```
+
+---
+
+## 🔧 Configuración
+
+### TypeScript
+
+El proyecto usa TypeScript 5.7 con configuración estricta. Ver `tsconfig.json` para detalles.
+
+### ESLint
+
+Configuración moderna con ESLint 9 y flat config. Ver `eslint.config.mjs`.
+
+### Testing
+
+- **Unit Tests**: Jest 30 con ts-jest
+- **E2E Tests**: Supertest + Jest
+- **Coverage**: Generado en `/coverage`
+
+---
+
+## 🐳 Docker
+
+### Desarrollo
+
+La base de datos y Redis se levantan desde `infra/docker-compose.dev.yaml`.
+
+### Producción
 
 ```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
+docker build -t landgit-api .
+docker run -p 3001:3001 landgit-api
 ```
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## 📡 API Endpoints
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Health Check
 
-```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+```http
+GET /
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Retorna el estado del servicio.
 
-## Resources
+---
 
-Check out a few resources that may come in handy when working with NestJS:
+## 🔗 Dependencias del Monorepo
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Este módulo puede consumir paquetes compartidos:
 
-## Support
+```typescript
+import { ... } from '@repo/shared';
+import { ... } from '@repo/types';
+import { ... } from '@repo/zod-schemas';
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 📚 Recursos
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+- [Documentación de NestJS](https://docs.nestjs.com)
+- [Volver al README principal](../README.md)
